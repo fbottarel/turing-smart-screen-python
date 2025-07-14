@@ -1,0 +1,12 @@
+services:
+  monitor:
+    image: monitor  # Replace with your actual image name
+    container_name: monitor
+    privileged: true     # --privileged
+    network_mode: host   # --network=host
+    devices:
+      - /dev/dri:/dev/dri  # --device=/dev/dri
+    volumes:
+      - .:/app           # -v $(pwd):/app
+    working_dir: /app    # -w /app
+    restart: always  # Auto-restart container
